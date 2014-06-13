@@ -36,6 +36,12 @@ group :development, :test do
   gem 'awesome_print'
 end
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
 group :production do
   gem 'rails_12factor'
 end
