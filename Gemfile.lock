@@ -40,6 +40,9 @@ GEM
     coffee-script-source (1.7.0)
     erubis (2.7.0)
     execjs (2.2.0)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -137,6 +140,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   coffee-rails (~> 4.0.0)
+  figaro
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
