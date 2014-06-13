@@ -35,6 +35,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'awesome_print'
   gem 'faker'
+  gem 'rspec-rails', '~> 3.0.0'
 end
 
 group :development do
