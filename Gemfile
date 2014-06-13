@@ -28,3 +28,8 @@ gem 'spring',        group: :development
 
 gem 'haml-rails'
 
+group :development, :test do
+  gem 'pry-rails'
+  gem 'awesome_print'
+end
+
