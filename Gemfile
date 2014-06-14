@@ -47,6 +47,7 @@ end
 
 group :test do
    gem 'database_cleaner'
+   gem 'capybara', git: 'https://github.com/jnicklas/capybara.git'
 end
 
 group :production do
