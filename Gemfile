@@ -32,6 +32,7 @@ gem 'haml-rails'
 gem 'figaro'
 gem 'pundit'
 gem 'modernizr-rails'
+gem 'foundation-rails'
 
 group :development, :test do
   gem 'pry-rails'
