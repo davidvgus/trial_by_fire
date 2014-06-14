@@ -31,6 +31,7 @@ gem 'spring',        group: :development
 gem 'haml-rails'
 gem 'figaro'
 gem 'pundit'
+gem 'modernizr-rails'
 
 group :development, :test do
   gem 'pry-rails'
