@@ -30,6 +30,7 @@ gem 'spring',        group: :development
 
 gem 'haml-rails'
 gem 'figaro'
+gem 'pundit'
 
 group :development, :test do
   gem 'pry-rails'
