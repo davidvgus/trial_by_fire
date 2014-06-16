@@ -40,7 +40,8 @@ group :development, :test do
   gem 'awesome_print'
   gem 'faker'
   gem 'rspec-rails', '~> 3.0.0'
-  gem "factory_girl_rails", "~> 4.0"
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'erb2haml'
 end
 
 group :development do
