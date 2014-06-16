@@ -33,6 +33,7 @@ gem 'figaro'
 gem 'pundit'
 gem 'modernizr-rails'
 gem 'foundation-rails'
+gem 'devise'
 
 group :development, :test do
   gem 'pry-rails'
