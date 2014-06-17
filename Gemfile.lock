@@ -1,14 +1,3 @@
-GIT
-  remote: https://github.com/jnicklas/capybara.git
-  revision: 6d3d8d915a6a5654efcf7dd75a62d8d0c619d65c
-  specs:
-    capybara (2.3.0)
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -48,6 +37,12 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     callsite (0.0.11)
+    capybara (2.2.1)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -222,7 +217,7 @@ DEPENDENCIES
   awesome_print
   better_errors
   binding_of_caller
-  capybara!
+  capybara
   coffee-rails (~> 4.0.0)
   database_cleaner
   devise
