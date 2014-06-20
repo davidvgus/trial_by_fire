@@ -53,7 +53,7 @@ end
 group :test do
    gem 'database_cleaner'
    #gem 'capybara', git: 'https://github.com/jnicklas/capybara.git'
-   gem 'capybara' # maybe use 2.3.0
+   gem 'capybara', '~> 2.3.0'
 end
 
 group :production do
