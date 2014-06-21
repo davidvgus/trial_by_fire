@@ -1,12 +1,12 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  sequence(:user_label) do
-    |n| "user#{n}"
-  end
+  #sequence(:user_label) do
+    #|n| "user#{n + 10}"
+  #end
 
-  sequence(:email) { |n| "user#{n}@test.com" }
-  sequence(:user_name) { |n| "user#{n}" }
+  sequence(:email) { |n| "user#{n + 10}@test.com" }
+  sequence(:user_name) { |n| "user#{n + 10}" }
 
   factory :user do
     email
