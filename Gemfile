@@ -51,9 +51,8 @@ group :development do
 end
 
 group :test do
-   gem 'database_cleaner'
-   #gem 'capybara', git: 'https://github.com/jnicklas/capybara.git'
-   gem 'capybara', '~> 2.3.0'
+  gem 'database_cleaner'
+  gem 'capybara', '~> 2.3.0'
 end
 
 group :production do
