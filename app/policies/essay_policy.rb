@@ -1,4 +1,4 @@
-class EssayPolicy < ApplictionPolicy
+class EssayPolicy < ApplicationPolicy
   def show?
     false
   end
