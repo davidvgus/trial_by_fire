@@ -74,9 +74,6 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
-    foundation-rails (5.2.3.0)
-      railties (>= 3.1.0)
-      sass (>= 3.2.0)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -110,7 +107,6 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (5.3.4)
-    modernizr-rails (2.7.1)
     multi_json (1.10.1)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
@@ -225,12 +221,10 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   faker
   figaro
-  foundation-rails
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
   meta_request
-  modernizr-rails
   pg
   pry-rails
   pundit

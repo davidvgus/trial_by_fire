@@ -31,8 +31,8 @@ gem 'spring',        group: :development
 gem 'haml-rails'
 gem 'figaro'
 gem 'pundit'
-gem 'modernizr-rails'
-gem 'foundation-rails'
+#gem 'modernizr-rails'
+#gem 'foundation-rails'
 gem 'devise'
 
 group :development, :test do
