@@ -1,7 +1,8 @@
 -#_flash_area.html.haml
 - flash.each do |type, msg|
-  %div{class: "alert-box #{type == :notice ? :success : type}", "data-alert" => true}
+  - alert_hash = {"notice" => "success", "alert" => "error"}
+  %div{:class => "alert alert-#{alert_hash[type]}", "data-alert" => true}
     = msg if msg.is_a?(String)
-    %a{href: "#", class: "close"}
+    %a{href: "#", :class => "close", "data-dismiss" => "alert"}
       &times;
 

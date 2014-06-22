@@ -31,8 +31,6 @@ gem 'spring',        group: :development
 gem 'haml-rails'
 gem 'figaro'
 gem 'pundit'
-#gem 'modernizr-rails'
-#gem 'foundation-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 
