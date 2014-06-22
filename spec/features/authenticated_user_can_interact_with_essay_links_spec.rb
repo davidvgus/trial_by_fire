@@ -1,7 +1,18 @@
 require 'rails_helper'
 
 feature "Authenticated user" do
-  scenario "can view essay links on menubar"
+  scenario "can view essay links on menubar" do
+    user = create(:user)
+
+
+    sign_in(user)
+    visit root_path
+
+    within(".nav") do
+      expect(page).to have_content("New Essay")
+      expect(page).to have_content("List Essays")
+    end
+  end
 
   context "can click through menu to" do
     scenario "view list of own essays"
@@ -19,6 +30,3 @@ feature "Authenticated user" do
   scenario "can edit a draft"
 end
 
-feature "Guest user" do
-  scenario "Can not see essay links on menubar"
-end
