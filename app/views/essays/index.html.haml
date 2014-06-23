@@ -3,11 +3,14 @@
 %table
   %tr
     %th
+      Title
+    %th
     %th
     %th
 
   - @essays.each do |essay|
     %tr
+      %td= essay.title
       %td= link_to 'Show', user_essay_path(@user, essay)
       %td= link_to 'Edit', edit_user_essay_path(@user, essay)
       %td= link_to 'Destroy', user_essay_path(@user, essay), :method => :delete, :data => { :confirm => 'Are you sure?' }

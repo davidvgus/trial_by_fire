@@ -1,5 +1,19 @@
 %p#notice= notice
 
+.container
+  %div
+    Title:
+  .content
+    = @essay.title
+  %div
+    Description
+  .content
+    = @essay.description
+  %div
+    Body
+  .content
+    = @essay.body
+
 
 = link_to 'Edit', edit_user_essay_path(@user, @essay)
 \|
