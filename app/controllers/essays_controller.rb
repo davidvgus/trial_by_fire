@@ -1,5 +1,6 @@
 class EssaysController < ApplicationController
   before_action :set_essay, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
 
   # GET /essays
   # GET /essays.json
@@ -25,10 +26,11 @@ class EssaysController < ApplicationController
   # POST /essays.json
   def create
     @essay = Essay.new(essay_params)
+    @essay.user = @user
 
     respond_to do |format|
       if @essay.save
-        format.html { redirect_to @essay, notice: 'Essay was successfully created.' }
+        format.html { redirect_to [@user, @essay], notice: 'Essay was successfully created.' }
         format.json { render :show, status: :created, location: @essay }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class EssaysController < ApplicationController
   def update
     respond_to do |format|
       if @essay.update(essay_params)
-        format.html { redirect_to @essay, notice: 'Essay was successfully updated.' }
+        format.html { redirect_to [@user, @essay], notice: 'Essay was successfully updated.' }
         format.json { render :show, status: :ok, location: @essay }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class EssaysController < ApplicationController
   def destroy
     @essay.destroy
     respond_to do |format|
-      format.html { redirect_to essays_url, notice: 'Essay was successfully destroyed.' }
+      format.html { redirect_to user_essays_url, notice: 'Essay was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,8 +69,12 @@ class EssaysController < ApplicationController
       @essay = Essay.find(params[:id])
     end
 
+    def set_user
+      @user = User.find(params[:user_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def essay_params
-      params[:essay]
+      params.require(:essay).permit(:title, :description, :body)
     end
 end

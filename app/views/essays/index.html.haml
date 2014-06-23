@@ -8,10 +8,10 @@
 
   - @essays.each do |essay|
     %tr
-      %td= link_to 'Show', essay
-      %td= link_to 'Edit', edit_essay_path(essay)
-      %td= link_to 'Destroy', essay, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', user_essay_path(@user, essay)
+      %td= link_to 'Edit', edit_user_essay_path(@user, essay)
+      %td= link_to 'Destroy', user_essay_path(@user, essay), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Essay', new_essay_path
+= link_to 'New Essay', new_user_essay_path

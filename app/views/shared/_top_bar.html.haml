@@ -3,9 +3,9 @@
     = link_to("Trial by Fire Change using i18n", root_path)
   - if current_user
     %li
-      = link_to("New Essay", "#")
+      = link_to("New Essay", new_user_essay_path(current_user))
     %li
-      = link_to("List Essays", "#")
+      = link_to("List Essays", user_essays_path(current_user))
     %li
       = link_to(current_user.email, edit_user_registration_path)
     %li

@@ -4,7 +4,6 @@ feature "Authenticated user" do
   scenario "can view essay links on menubar" do
     user = create(:user)
 
-
     sign_in(user)
     visit root_path
 

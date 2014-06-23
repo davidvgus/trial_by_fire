@@ -1,10 +1,26 @@
-= form_for @essay do |f|
+= form_for [@user, @essay], html: { class: "form-horizontal" } do |f|
   - if @essay.errors.any?
     #error_explanation
       %h2= "#{pluralize(@essay.errors.count, "error")} prohibited this essay from being saved:"
       %ul
         - @essay.errors.full_messages.each do |msg|
           %li= msg
-
+  .control-group
+    = f.label :title, class: "control-label"
+    .controls
+      = f.text_field :title
+  .control-group
+    = f.label :description, class: "control-label"
+    .controls
+      = f.text_field :description
+  .conrol-group
+    = f.label :body, class: "control-label"
+    .controls
+      = f.text_area :body
+  .control-group
+    .label
+      Status
+    .controls
+      = @essay.status
   .actions
     = f.submit 'Save'

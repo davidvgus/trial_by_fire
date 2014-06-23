@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :essays
+  #resources :essays
 
   devise_for :users
   #get 'welcome/index'
