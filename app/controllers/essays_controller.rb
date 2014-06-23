@@ -5,21 +5,26 @@ class EssaysController < ApplicationController
   # GET /essays
   # GET /essays.json
   def index
-    @essays = Essay.all
+    #@essays = @user.essays
+    @essays = policy_scope(Essay)
+    authorize @essays
   end
 
   # GET /essays/1
   # GET /essays/1.json
   def show
+    authorize @essay
   end
 
   # GET /essays/new
   def new
     @essay = Essay.new
+    authorize @essay
   end
 
   # GET /essays/1/edit
   def edit
+    authorize @essay
   end
 
   # POST /essays
@@ -27,6 +32,7 @@ class EssaysController < ApplicationController
   def create
     @essay = Essay.new(essay_params)
     @essay.user = @user
+    authorize @essay
 
     respond_to do |format|
       if @essay.save
@@ -42,6 +48,7 @@ class EssaysController < ApplicationController
   # PATCH/PUT /essays/1
   # PATCH/PUT /essays/1.json
   def update
+    authorize @essay
     respond_to do |format|
       if @essay.update(essay_params)
         format.html { redirect_to [@user, @essay], notice: 'Essay was successfully updated.' }
@@ -56,6 +63,7 @@ class EssaysController < ApplicationController
   # DELETE /essays/1
   # DELETE /essays/1.json
   def destroy
+    authorize @essay
     @essay.destroy
     respond_to do |format|
       format.html { redirect_to user_essays_url, notice: 'Essay was successfully destroyed.' }
@@ -70,7 +78,7 @@ class EssaysController < ApplicationController
     end
 
     def set_user
-      @user = User.find(params[:user_id])
+      @user = current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
