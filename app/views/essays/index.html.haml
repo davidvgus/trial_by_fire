@@ -1,0 +1,17 @@
+%h1 Listing essays
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @essays.each do |essay|
+    %tr
+      %td= link_to 'Show', essay
+      %td= link_to 'Edit', edit_essay_path(essay)
+      %td= link_to 'Destroy', essay, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Essay', new_essay_path

@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+
+  resources :essays
+
   devise_for :users
   #get 'welcome/index'
+
+  resources :users, only: [] do
+    resources :essays
+  end
 
   root 'welcome#index'
 
