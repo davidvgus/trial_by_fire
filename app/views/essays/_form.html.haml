@@ -5,20 +5,16 @@
       %ul
         - @essay.errors.full_messages.each do |msg|
           %li= msg
-  .control-group
-    = f.label :title, class: "control-label"
-    .controls
-      = f.text_field :title
-  .control-group
-    = f.label :description, class: "control-label"
-    .controls
-      = f.text_field :description
-  .conrol-group
-    = f.label :body, class: "control-label"
-    .controls
-      = f.text_area :body
-  .control-group
-    .controls
-      = "Status: #{@essay.status}"
-  .actions
-    = f.submit 'Save'
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: "form-control"
+  .form-group
+    = f.label :description
+    = f.text_field :description, class: "form-control"
+  .form-group
+    = f.label :body
+    = f.text_area :body, class: "form-control"
+  .form-group
+    = "Status: #{@essay.status}"
+  .form-group
+    = f.submit 'Save', class: "btn btn-default"
