@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140621035544) do
+ActiveRecord::Schema.define(version: 20140624224924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "arguments", force: true do |t|
+    t.integer  "owner_id"
+    t.integer  "con_side_id"
+    t.text     "con_side_essay"
+    t.integer  "winner_id"
+    t.integer  "loser_id"
+    t.integer  "outcome"
+    t.integer  "status",         default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "arguments", ["con_side_id"], name: "index_arguments_on_con_side_id", using: :btree
+  add_index "arguments", ["owner_id"], name: "index_arguments_on_owner_id", using: :btree
 
   create_table "essays", force: true do |t|
     t.integer  "user_id"
