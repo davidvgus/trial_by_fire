@@ -6,5 +6,13 @@ rails generate scaffold Argument \
   con_side_essay:text \
   winner_id:integer \
   loser_id:integer \
-  status:integer
+  status:integer \
+  --no-assets \
+  --no-controller-specs \
+  --no-view-specs \
+  --no-helper-specs \
+  --no-routing-specs \
+  --no-javascripts \
+  --no-helper \
+  --no-jbuilder \
 

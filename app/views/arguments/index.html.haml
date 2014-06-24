@@ -1,0 +1,29 @@
+%h1 Listing arguments
+
+%table
+  %tr
+    %th Owner
+    %th Con side
+    %th Con side essay
+    %th Winner
+    %th Loser
+    %th Status
+    %th
+    %th
+    %th
+
+  - @arguments.each do |argument|
+    %tr
+      %td= argument.owner_id
+      %td= argument.con_side_id
+      %td= argument.con_side_essay
+      %td= argument.winner_id
+      %td= argument.loser_id
+      %td= argument.status
+      %td= link_to 'Show', argument
+      %td= link_to 'Edit', edit_argument_path(argument)
+      %td= link_to 'Destroy', argument, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Argument', new_argument_path

@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Owner:
+  = @argument.owner_id
+%p
+  %b Con side:
+  = @argument.con_side_id
+%p
+  %b Con side essay:
+  = @argument.con_side_essay
+%p
+  %b Winner:
+  = @argument.winner_id
+%p
+  %b Loser:
+  = @argument.loser_id
+%p
+  %b Status:
+  = @argument.status
+
+= link_to 'Edit', edit_argument_path(@argument)
+\|
+= link_to 'Back', arguments_path

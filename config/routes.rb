@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :arguments
+
   #resources :essays
 
   devise_for :users
