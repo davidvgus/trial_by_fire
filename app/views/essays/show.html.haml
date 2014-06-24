@@ -2,19 +2,27 @@
 
 .container
   %div
-    Title:
+    %h3
+      Title:
   .content
     = @essay.title
   %div
-    Description
+    %h3
+      Description:
   .content
     = @essay.description
   %div
-    Body
+    %h3
+      Body:
   .content
     = @essay.body
+  %div
+    %h3
+      Status:
+      = @essay.status
 
-
-= link_to 'Edit', edit_user_essay_path(@user, @essay)
-\|
-= link_to 'Back', user_essays_path
+#bottom_menu
+  - if policy(@essay).edit?
+    = link_to 'Edit', edit_user_essay_path(@user, @essay)
+    \|
+  = link_to 'Back', user_essays_path

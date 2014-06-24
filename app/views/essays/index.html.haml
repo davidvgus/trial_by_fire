@@ -1,6 +1,6 @@
 %h1 Listing essays
 
-%table
+%table.table.table-hover
   %tr
     %th
       Title
@@ -9,11 +9,19 @@
     %th
 
   - @essays.each do |essay|
-    %tr
+    %tr{ :class => "#{ essay.published? ? 'warning' : ''}" }
       %td= essay.title
       %td= link_to 'Show', user_essay_path(@user, essay)
-      %td= link_to 'Edit', edit_user_essay_path(@user, essay)
-      %td= link_to 'Destroy', user_essay_path(@user, essay), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - if policy(essay).edit?
+        %td= link_to 'Edit', edit_user_essay_path(@user, essay)
+      - else
+        %td.disabled
+          Edit
+      - if policy(essay).destroy?
+        %td= link_to 'Destroy', user_essay_path(@user, essay), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - else
+        %td.disabled
+          Destroy
 
 %br
 
