@@ -18,9 +18,7 @@
     .controls
       = f.text_area :body
   .control-group
-    .label
-      Status
     .controls
-      = @essay.status
+      = "Status: #{@essay.status}"
   .actions
     = f.submit 'Save'
