@@ -6,7 +6,8 @@ class CreateArguments < ActiveRecord::Migration
       t.text :con_side_essay
       t.integer :winner_id
       t.integer :loser_id
-      t.integer :status
+      t.integer :outcome
+      t.integer :status, default: 0
 
       t.timestamps
     end

@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :arguments
-
-  #resources :essays
 
   devise_for :users
-  #get 'welcome/index'
 
   resources :users, only: [] do
     resources :essays
+    resources :arguments
   end
+
+  resources :arguments, only: [:show]
 
   root 'welcome#index'
 
