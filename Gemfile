@@ -33,6 +33,7 @@ gem 'figaro'
 gem 'pundit'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
+gem 'simple_form'
 
 group :development, :test do
   gem 'pry-rails'
