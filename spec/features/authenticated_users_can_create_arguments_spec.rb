@@ -11,7 +11,31 @@ feature "users" do
     end
   end
   context "who are authed can click on argument link in menubar and " do
-    scenario "see arguments they created"
+    before(:each) do
+      @user = create(:user)
+      sign_in(@user)
+    end
+
+    scenario "see arguments they created" do
+      own_arguments = []
+      3.times do |n|
+        own_arguments << create(:argument, owner_id: @user.id)
+      end
+
+      #make arguments user doesn't own
+
+      visit root_path
+      click_link("My Arguments")
+
+      within('.owned_arguments') do
+        expect(page).to have_content(own_arguments[0].essay.title)
+        expect(page).to have_content(own_arguments[1].essay.title)
+        expect(page).to have_content(own_arguments[2].essay.title)
+      end
+
+      #test that non owned args don't appear on page
+
+    end
     scenario "see arguments they are cons_sides for"
     scenario "see arguments they are judging"
   end
