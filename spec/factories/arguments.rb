@@ -8,5 +8,9 @@ FactoryGirl.define do
     winner_id nil
     loser_id nil
     status 0
+
+    after(:build) do |argument|
+      argument.essay ||= FactoryGirl.build(:essay, :argument => argument)
+    end
   end
 end
