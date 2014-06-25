@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
     resources :essays
-    resources :arguments
+    resources :arguments, except: [:show]
   end
 
   resources :arguments, only: [:show]
