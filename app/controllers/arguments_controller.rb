@@ -4,7 +4,7 @@ class ArgumentsController < ApplicationController
   # GET /arguments
   # GET /arguments.json
   def index
-    @arguments = Argument.all
+    @arguments = current_user.arguments
   end
 
   # GET /arguments/1
