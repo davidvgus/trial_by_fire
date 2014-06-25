@@ -1,0 +1,25 @@
+
+%h2 Owned Arguments
+
+%table.owned_arguments
+  %tr
+    %th Title
+    %th Winner
+    %th Loser
+    %th Status
+    %th
+    %th
+    %th
+
+  - @arguments.each do |argument|
+    %tr
+      %td= link_to 'Edit', edit_user_argument_path(current_user, argument)
+      %td= link_to(argument.essay.title)
+      %td= argument.con_side.user_name
+      %td= argument.winner_id
+      %td= argument.loser_id
+      %td= argument.status
+      %td= link_to 'Show', argument
+
+%br
+
