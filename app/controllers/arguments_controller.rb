@@ -10,21 +10,25 @@ class ArgumentsController < ApplicationController
   # GET /arguments/1
   # GET /arguments/1.json
   def show
+    authorize @argument
   end
 
   # GET /arguments/new
   def new
     @argument = Argument.new
+    authorize @argument
   end
 
   # GET /arguments/1/edit
   def edit
+    authorize @argument
   end
 
   # POST /arguments
   # POST /arguments.json
   def create
     @argument = Argument.new(argument_params)
+    authorize @argument
 
     respond_to do |format|
       if @argument.save
@@ -40,6 +44,7 @@ class ArgumentsController < ApplicationController
   # PATCH/PUT /arguments/1
   # PATCH/PUT /arguments/1.json
   def update
+    authorize @argument
     respond_to do |format|
       if @argument.update(argument_params)
         format.html { redirect_to @argument, notice: 'Argument was successfully updated.' }
@@ -54,6 +59,7 @@ class ArgumentsController < ApplicationController
   # DELETE /arguments/1
   # DELETE /arguments/1.json
   def destroy
+    authorize @argument
     @argument.destroy
     respond_to do |format|
       format.html { redirect_to arguments_url, notice: 'Argument was successfully destroyed.' }
