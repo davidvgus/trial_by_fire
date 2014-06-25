@@ -59,6 +59,7 @@ group :test do
 end
 
 group :production do
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'rails_12factor'
 end
 
