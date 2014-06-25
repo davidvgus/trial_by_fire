@@ -13,9 +13,9 @@ feature "Latest Arguments appear on the landing page for" do
     visit root_path
 
     within('#argument_listing') do
-      expect(page).to have_content(@arguments[0].title)
-      expect(page).to have_content(@arguments[1].title)
-      expect(page).to have_content(@arguments[2].title)
+      expect(page).to have_content(@arguments[0].essay.title)
+      expect(page).to have_content(@arguments[1].essay.title)
+      expect(page).to have_content(@arguments[2].essay.title)
     end
   end
 
@@ -24,9 +24,9 @@ feature "Latest Arguments appear on the landing page for" do
     sign_in(user)
 
     within('#argument_listing') do
-      expect(page).to have_content(@arguments[0].title)
-      expect(page).to have_content(@arguments[1].title)
-      expect(page).to have_content(@arguments[2].title)
+      expect(page).to have_content(@arguments[0].essay.title)
+      expect(page).to have_content(@arguments[1].essay.title)
+      expect(page).to have_content(@arguments[2].essay.title)
     end
 
   end
