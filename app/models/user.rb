@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   validates :user_name, presence: true, uniqueness: true
 
   has_many :essays
+  has_many :arguments, foreign_key: "owner_id"
+  has_many :con_arguments, foreign_key: "con_side"
 end
