@@ -1,7 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  sequence(:title) { |n| "Should we nuke #{Faker::Address.city}#{n}" }
+  sequence(:title) { |n| "Boxers or #{Faker::Address.city}#{n}?" }
   factory :essay do
     user
     title
