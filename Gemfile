@@ -50,6 +50,7 @@ group :development do
   gem 'meta_request'
   gem 'guard'
   gem 'guard-rspec', require: false
+  gem 'guard-livereload', require: false
 end
 
 group :test do
