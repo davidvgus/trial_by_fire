@@ -27,4 +27,17 @@ RSpec.describe Argument, :type => :model do
     expect(argument.winner_id).to be_nil
     expect(argument.loser_id).to be_nil
   end
+
+  it "can have judges" do
+    argument = create(:argument)
+    user = create(:user)
+    user2 = create(:user)
+    user3 = create(:user)
+
+    argument.judges << user
+    argument.judges << user2
+    argument.judges << user3
+
+    expect(argument.judges).to match_array([user, user2, user3])
+  end
 end
