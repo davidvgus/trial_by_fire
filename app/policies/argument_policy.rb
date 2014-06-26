@@ -17,10 +17,14 @@ class ArgumentPolicy < ApplicationPolicy
   end
 
   def update?
-    scope.where(:id => record.id).exists? && user == record.con_side && record.submitted?
+    scope.where(:id => record.id).exists? && user == record.con_side && record.being_critiqued?
   end
 
   def edit?
+    update?
+  end
+
+  def submit_to_judgement?
     update?
   end
 
