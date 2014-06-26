@@ -1,10 +1,11 @@
 class ArgumentsController < ApplicationController
-  before_action :set_argument, only: [:show, :edit, :update, :destroy]
+  before_action :set_argument, only: [:show, :edit, :update, :destroy, :submit_to_judgement]
 
   # GET /arguments
   # GET /arguments.json
   def index
     @arguments = current_user.arguments
+    @con_side_arguments = Argument.where(con_side_id: current_user.id)
   end
 
   # GET /arguments/1
@@ -65,6 +66,12 @@ class ArgumentsController < ApplicationController
       format.html { redirect_to arguments_url, notice: 'Argument was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def submit_to_judgement
+    authorize @argument
+    @argument.submitted_to_judgement!
+    redirect_to action: 'show'
   end
 
   private

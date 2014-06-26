@@ -5,10 +5,16 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
     resources :essays
-    resources :arguments, except: [:show]
+    resources :arguments, except: [:show] do
+    end
   end
 
-  resources :arguments, only: [:show]
+
+  resources :arguments, only: [:show] do
+    member do
+      patch 'submit_to_judgement'
+    end
+  end
 
   root 'welcome#index'
 

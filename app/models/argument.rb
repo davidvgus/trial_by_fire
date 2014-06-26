@@ -8,6 +8,6 @@ class Argument < ActiveRecord::Base
   validates_presence_of :con_side_id
   validates_presence_of :essay
 
-  enum status: { :submitted => 0, :under_consideration => 1, :complete => 2 }
+  enum status: { being_critiqued: 0, submitted_to_judgement: 1, being_judged: 2, complete: 3}
 
 end
