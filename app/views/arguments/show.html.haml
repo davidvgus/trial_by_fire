@@ -2,10 +2,10 @@
 
 %p
   %b Owner:
-  = @argument.owner_id
+  = @argument.owner.user_name
 %p
   %b Con side:
-  = @argument.con_side_id
+  = @argument.con_side.user_name
 %p
   %b Con side essay:
   = @argument.con_side_essay
@@ -20,6 +20,4 @@
   = @argument.status
 
 - if policy(@argument).edit?
-  = link_to 'Edit', edit_user_argument_path(@user, @argument)
-\|
-= link_to 'Welcome Page', root_path
+  = link_to 'Edit', edit_user_argument_path(current_user, @argument)

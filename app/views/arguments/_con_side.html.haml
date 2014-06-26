@@ -1,10 +1,10 @@
 
-%h2 Owned Arguments
+%h2 Con Side Arguments
 
-%table.owned_arguments
+%table.con_side_arguments
   %tr
     %th Title
-    %th Con Side
+    %th Pro Side
     %th Winner
     %th Loser
     %th Status
@@ -12,14 +12,13 @@
     %th
     %th
 
-  - @arguments.each do |argument|
+  - @con_side_arguments && @con_side_arguments.each do |argument|
     %tr
       %td= link_to(argument.essay.title)
-      %td= argument.con_side.user_name
+      %td= argument.owner.user_name
       %td= argument.winner_id
       %td= argument.loser_id
       %td= argument.status
       %td= link_to 'Show', argument
 
 %br
-

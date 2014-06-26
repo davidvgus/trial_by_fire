@@ -1,9 +1,15 @@
-= simple_form_for(@argument) do |f|
-  = f.error_notification
+.panel.panel-info
+  .panel-heading
+    Conside Argument(from _form)
+  .panel-body
+    = simple_form_for([current_user, @argument]) do |f|
+      = f.error_notification
 
-  .form-inputs
-    = f.input :con_side_id
-    = f.input :con_side_essay
+      .form-group
+        = f.input :con_side_essay, input_html: { rows: 20, class: 'form-control' }
 
-  .form-actions
-    = f.button :submit
+      .form-actions
+        = f.button :submit
+    %p
+      = form_for(@argument, url: url_for(controller: :arguments, action: 'submit_to_judgement')) do |f|
+        = f.submit("Submit for judgement", class: "btn")

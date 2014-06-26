@@ -2,8 +2,8 @@
   = t ".title"
 %h1
   Latest Arguments
-  #argument_listing
-    %ul
-      - @arguments && @arguments.each do |argument|
-        .argument_welcome_page_link
-          = link_to(argument.essay.title, argument_path(argument))
+#argument_listing
+  %ul
+    - @arguments && @arguments.each do |argument|
+      .argument_welcome_page_link
+        = link_to(argument.essay.title, argument_path(argument))
