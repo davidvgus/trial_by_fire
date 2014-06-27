@@ -34,6 +34,7 @@ gem 'pundit'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'simple_form'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'pry-rails'
