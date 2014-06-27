@@ -1,5 +1,5 @@
 class ArgumentsController < ApplicationController
-  before_action :set_argument, only: [:show, :edit, :update, :destroy, :submit_to_judgement]
+  before_action :set_argument, only: [:show, :edit, :update, :destroy, :submit_to_judgement, :add_judges]
 
   # GET /arguments
   # GET /arguments.json
@@ -12,6 +12,7 @@ class ArgumentsController < ApplicationController
   # GET /arguments/1.json
   def show
     authorize @argument
+    @users_elegible_to_be_judges = @argument.eligible_judges
   end
 
   # GET /arguments/new
@@ -70,8 +71,21 @@ class ArgumentsController < ApplicationController
 
   def submit_to_judgement
     authorize @argument
-    @argument.submitted_to_judgement!
+    @argument.selecting_judges!
     redirect_to action: 'show'
+  end
+
+  def add_judges
+
+    @argument.judges.destroy_all
+    params["judge_users"].each do |judge_id|
+      @argument.judges << User.find(judge_id) unless [ @argument.owner.id, @argument.con_side.id].include?(judge_id)
+    end
+
+    added_judges = " These judges were added: "
+    flash[:notice] = "#{added_judges}#{@argument.judges.pluck(:user_name).join(", ")}"
+
+    redirect_to action: :show
   end
 
   private
