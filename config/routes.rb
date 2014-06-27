@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
+  put 'arguments/:id/add_judges', to: 'arguments#add_judges'
 
   resources :arguments, only: [:show] do
     member do
