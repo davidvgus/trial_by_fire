@@ -54,12 +54,6 @@ RSpec.describe Argument, :type => :model do
     expect(argument.status).to eql("selecting_judges")
   end
 
-  it "has the submitted_to_judgement status trait used" do
-    argument = build(:argument, :submitted_to_judgement )
-
-    expect(argument.status).to eql("submitted_to_judgement")
-  end
-
   it "has the being_judged status trait used" do
     argument = build(:argument, :being_judged )
 
