@@ -40,4 +40,35 @@ RSpec.describe Argument, :type => :model do
 
     expect(argument.judges).to match_array([user, user2, user3])
   end
+
+
+  it "has the being_critiqued status by default" do
+    argument = build(:argument)
+
+    expect(argument.status).to eql("being_critiqued")
+  end
+
+  it "has the selecting_judges status when trait used" do
+    argument = build(:argument, :selecting_judges)
+
+    expect(argument.status).to eql("selecting_judges")
+  end
+
+  it "has the submitted_to_judgement status trait used" do
+    argument = build(:argument, :submitted_to_judgement )
+
+    expect(argument.status).to eql("submitted_to_judgement")
+  end
+
+  it "has the being_judged status trait used" do
+    argument = build(:argument, :being_judged )
+
+    expect(argument.status).to eql("being_judged")
+  end
+
+  it "has the complete status trait used" do
+    argument = build(:argument, :complete )
+
+    expect(argument.status).to eql("complete")
+  end
 end
