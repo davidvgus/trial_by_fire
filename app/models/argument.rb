@@ -10,6 +10,16 @@ class Argument < ActiveRecord::Base
   validates_presence_of :con_side_id
   validates_presence_of :essay
 
-  enum status: { being_critiqued: 0, selecting_judges: 10, submitted_to_judgement: 20, being_judged: 30, complete: 40}
+  enum status: { being_critiqued: 0, selecting_judges: 10, being_judged: 20, complete: 30}
+
+
+  def has_judge?(user)
+    self.judges.include?(user)
+  end
+
+  def eligible_judges
+    excluded = [self.owner, self.con_side]
+    User.eligible_judges(excluded)
+  end
 
 end
