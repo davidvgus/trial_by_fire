@@ -1,0 +1,10 @@
+.panel.panel-info.judges
+  .panel-heading
+    Add Judges
+  .panel-body
+    = form_tag("/arguments/#{@argument.id}/add_judges", method: :put) do
+      - @users_elegible_to_be_judges.each do |judge_user|
+        .form-group
+          = label_tag judge_user.user_name
+          = check_box_tag "judge_users[]", judge_user.id, @argument.has_judge?(judge_user), id: judge_user.user_name
+      = submit_tag("Add Judges")
