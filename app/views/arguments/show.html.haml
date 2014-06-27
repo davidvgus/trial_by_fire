@@ -1,4 +1,3 @@
-%p#notice= notice
 
 %p
   %b Owner:
@@ -21,3 +20,5 @@
 
 - if policy(@argument).edit?
   = link_to 'Edit', edit_user_argument_path(current_user, @argument)
+- if policy(@argument).add_judges?
+  = render "add_judges"
