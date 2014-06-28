@@ -5,11 +5,13 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
     resources :essays
-    resources :arguments, except: [:show] do
+    resources :arguments, except: [:show, :new] do
     end
   end
 
   put 'arguments/:id/add_judges', to: 'arguments#add_judges'
+
+  get '/users/:user_id/essays/:essay_id/arguments/new', to: 'arguments#new'
 
   resources :arguments, only: [:show] do
     member do
