@@ -40,6 +40,7 @@ class ArgumentsController < ApplicationController
       if @argument.save
         format.html { redirect_to @argument, notice: 'Argument was successfully created.' }
         format.json { render :show, status: :created, location: @argument }
+        @argument.essay.published!
       else
         format.html { render :new }
         format.json { render json: @argument.errors, status: :unprocessable_entity }
