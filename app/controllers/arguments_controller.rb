@@ -25,6 +25,7 @@ class ArgumentsController < ApplicationController
   # GET /arguments/1/edit
   def edit
     authorize @argument
+    @essay = @argument.essay
   end
 
   # POST /arguments
