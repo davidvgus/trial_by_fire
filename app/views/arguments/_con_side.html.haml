@@ -13,12 +13,14 @@
     %th
 
   - @con_side_arguments && @con_side_arguments.each do |argument|
-    %tr
-      %td= link_to(argument.essay.title)
+    %tr{ class: "argument_row_for_#{argument.id}" }
+      %td= argument.essay.title
       %td= argument.owner.user_name
       %td= argument.winner_id
       %td= argument.loser_id
       %td= argument.status
       %td= link_to 'Show', argument
+      -if policy(argument).edit?
+        %td= link_to 'Edit Con Side Essay', edit_user_argument_path(current_user, argument)
 
 %br
