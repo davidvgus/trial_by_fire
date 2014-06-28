@@ -17,6 +17,7 @@ class ArgumentsController < ApplicationController
 
   # GET /arguments/new
   def new
+    @essay = Essay.find(params[:essay_id])
     @argument = Argument.new
     authorize @argument
   end
@@ -29,7 +30,10 @@ class ArgumentsController < ApplicationController
   # POST /arguments
   # POST /arguments.json
   def create
-    @argument = Argument.new(argument_params)
+    @argument = Argument.new
+    @argument.owner = current_user
+    @argument.con_side = User.find(params[:argument][:con_side_id])
+    @argument.essay = Essay.find(params[:essay_id])
     authorize @argument
 
     respond_to do |format|
@@ -96,6 +100,6 @@ class ArgumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def argument_params
-      params.require(:argument).permit(:owner_id, :con_side_id, :con_side_essay, :winner_id, :loser_id, :status)
+      params.require(:argument).permit(:owner_id, :con_side_id, :con_side_essay)
     end
 end
