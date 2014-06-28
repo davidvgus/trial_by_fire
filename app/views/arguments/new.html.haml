@@ -1,5 +1,14 @@
-%h1 New argument
+.panel.panel-info
+  .panel-heading
+    Pick your opponent and then click 'Create Argument.'
+  .panel-body
+    = simple_form_for([current_user, @argument]) do |f|
+      = f.error_notification
+      = hidden_field_tag :essay_id, @essay.id
 
-= render 'form'
+      .form-group
+        = f.association :con_side, label_method: :user_name, collection: User.where.not(id: current_user.id), prompt: "Choose an opponent"
 
-= link_to 'Back', arguments_path
+      .form-actions
+        = f.button :submit, id: "commit"
+= link_to 'Welcome', root_path
