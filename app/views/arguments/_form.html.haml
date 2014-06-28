@@ -9,7 +9,7 @@
         = f.input :con_side_essay, input_html: { rows: 20, class: 'form-control' }
 
       .form-actions
-        = f.button :submit
+        = f.button :submit, class: "btn btn-warning"
     %p
       = form_for(@argument, url: url_for(controller: :arguments, action: 'submit_to_judgement')) do |f|
-        = f.submit("Submit for judgement", class: "btn")
+        = f.submit("Submit for judgement", class: "btn btn-danger")
