@@ -14,7 +14,7 @@
 
   - @arguments.each do |argument|
     %tr
-      %td= link_to(argument.essay.title)
+      %td= argument.essay.title
       %td= argument.con_side.user_name
       %td= argument.winner_id
       %td= argument.loser_id
