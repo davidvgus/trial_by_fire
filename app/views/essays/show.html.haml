@@ -1,26 +1,7 @@
-.container
-  %div
-    %h3
-      Title:
-  .content
-    = @essay.title
-  %div
-    %h3
-      Description:
-  .content
-    = @essay.description
-  %div
-    %h3
-      Body:
-  .content
-    = @essay.body
-  %div
-    %h3
-      Status:
-      = @essay.status
-  - if @essay.draft?
-    #start_argument
-      %button.btn= link_to "Start an Argument", "/users/#{current_user.id}/essays/#{@essay.id}/arguments/new"
+= render 'shared/display_essay'
+- if @essay.draft?
+  #start_argument
+    %a.btn.button= link_to "Start an Argument", "/users/#{current_user.id}/essays/#{@essay.id}/arguments/new"
 #bottom_menu
   - if policy(@essay).edit?
     = link_to 'Edit', edit_user_essay_path(@user, @essay)
