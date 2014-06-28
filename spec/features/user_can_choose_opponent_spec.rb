@@ -24,11 +24,10 @@ feature "On the new argument page" do
   scenario "when a user clicks 'Create Argument the essay becomes published' " do
     visit "/users/#{@owner.id}/essays/#{@essay.id}/arguments/new"
 
-    expect(page).to have_content("Pick your opponent and then click 'Create Argument.'")
-
     select @con_side_choice2.user_name, from: 'argument_con_side_id'
     click_button("commit")
 
+    @essay.reload
     expect(@essay.published?).to eql true
   end
 end
