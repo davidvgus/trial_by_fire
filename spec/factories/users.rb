@@ -5,8 +5,8 @@ FactoryGirl.define do
     #|n| "user#{n + 10}"
   #end
 
-  sequence(:email) { |n| "user#{n + 10}@test.com" }
-  sequence(:user_name) { |n| "user#{n + 10}" }
+  sequence(:email) { |n| "user#{n}@test.com" }
+  sequence(:user_name) { |n| "user#{n}" }
 
   factory :user do
     email
