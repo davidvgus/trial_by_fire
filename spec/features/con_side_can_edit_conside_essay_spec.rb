@@ -35,7 +35,7 @@ feature "con_side" do
 
   scenario "can submit argument to judgement" do
     visit edit_user_argument_path(@con_side, @argument)
-    click_on("Submit for judgement")
+    click_on("Assign Judges")
 
     expect(page).to have_content("Add Judges")
   end
