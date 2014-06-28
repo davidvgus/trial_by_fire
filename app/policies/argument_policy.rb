@@ -9,7 +9,7 @@ class ArgumentPolicy < ApplicationPolicy
   end
 
   def create?
-    false
+    user != nil
   end
 
   def new?
