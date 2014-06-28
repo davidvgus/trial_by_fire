@@ -21,7 +21,7 @@ guard :rspec do
   watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { "spec" }
   watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
   watch(%r{^spec/factories/(.+)\.rb$})                { "spec" }
-  watch(%r{^spec/features/.+_spec\.rb$})              { "spec" }
+  watch(%r{^spec/features/.+_spec\.rb$})              { |m| "spec/#{m[1]}_spec.rb" }
   watch('config/routes.rb')                           { "spec" }
   watch('app/controllers/application_controller.rb')  { "spec" }
 
