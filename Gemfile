@@ -36,11 +36,11 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'simple_form'
 gem 'newrelic_rpm'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-rails'
   gem 'awesome_print'
-  gem 'faker'
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'erb2haml'
@@ -61,7 +61,6 @@ group :test do
 end
 
 group :production do
-  gem 'faker'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'rails_12factor'
 end
