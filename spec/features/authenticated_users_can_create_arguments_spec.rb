@@ -2,11 +2,6 @@ require 'rails_helper'
 
 feature "users" do
 
-  context "see, on the arguments index page," do
-    scenario "a list of unused arguments."
-    scenario "a list of used (published) arguments."
-  end
-
   scenario "who are authed can see My Arguments link on menu" do
     user = create(:user)
     sign_in(user)
@@ -80,7 +75,6 @@ feature "users" do
       end
 
     end
-    scenario "see arguments they are judging"
   end
 
   context "Who are not authed" do

@@ -47,5 +47,4 @@ feature "con_side invites judges" do
       expect(page).not_to have_content("Owner User")
     end
   end
-  scenario "invites judge who is not yet a user"
 end
