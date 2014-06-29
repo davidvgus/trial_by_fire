@@ -6,6 +6,7 @@ class ArgumentsController < ApplicationController
   def index
     @arguments = current_user.arguments
     @con_side_arguments = Argument.where(con_side_id: current_user.id)
+    @judging_arguments = current_user.appointments
   end
 
   # GET /arguments/1
