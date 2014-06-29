@@ -14,6 +14,7 @@ class ArgumentsController < ApplicationController
   def show
     authorize @argument
     @users_elegible_to_be_judges = @argument.eligible_judges
+    @current_user_role = @argument.get_current_user_role(current_user)
   end
 
   # GET /arguments/new

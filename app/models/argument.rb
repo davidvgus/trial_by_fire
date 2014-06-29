@@ -22,4 +22,16 @@ class Argument < ActiveRecord::Base
     User.eligible_judges(excluded)
   end
 
+  def get_current_user_role(user)
+    if (user == self.owner)
+      "Owner"
+    elsif (user == self.con_side)
+      "Con Side"
+    elsif self.judges.include?(user)
+      "Judge"
+    else
+      "Witness"
+    end
+  end
+
 end
