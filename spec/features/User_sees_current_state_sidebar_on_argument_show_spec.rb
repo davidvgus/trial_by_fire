@@ -10,35 +10,83 @@ feature "When User" do
     [@judge_1, @judge_2].each do |judge|
       @argument.judges << judge
     end
+    @witness = create(:user)
   end
 
-  context "Is the owner" do
+  shared_examples "shows judges" do
+    scenario "lists judges in sidebar" do
+      within(".sidebar_judges") do
+        expect(page).to have_content(@judge_1.user_name)
+        expect(page).to have_content(@judge_2.user_name)
+      end
+    end
+  end
+
+
+  context "is the owner" do
     background do
       sign_in(@owner_user)
       visit argument_path(@argument)
     end
     scenario "and views an argument page he sees that current role is set to Owner." do
       within(".status-panel") do
-        expect(page).to have_content("Current Role: Owner")
+        expect(page).to have_content("Your Role: Owner")
       end
     end
+
+    include_examples "shows judges"
   end
 
-
-  context "Is the con_side" do
+  context "is the con_side" do
     background do
-      Sign_in(@con_side_user)
+      sign_in(@con_side_user)
       visit argument_path(@argument)
     end
-    scenario "and views an argument page he sees that current role is set to Con Side."
+    scenario "and views an argument page he sees that current role is set to Con Side." do
+      within(".status-panel") do
+        expect(page).to have_content("Your Role: Con Side")
+      end
+    end
+    include_examples "shows judges"
   end
 
   context "is a judge" do
     background do
-      Sign_in(@judge_1)
+      sign_in(@judge_1)
       visit argument_path(@argument)
     end
-    scenario "and views an argument page he sees that current role is set to Judge."
+    scenario "and views an argument page he sees that current role is set to Judge." do
+      within(".status-panel") do
+        expect(page).to have_content("Your Role: Judge")
+      end
+    end
+    include_examples "shows judges"
+  end
+
+  context "is a judge" do
+    background do
+      sign_in(@judge_2)
+      visit argument_path(@argument)
+    end
+    scenario "and views an argument page he sees that current role is set to Judge." do
+      within(".status-panel") do
+        expect(page).to have_content("Your Role: Judge")
+      end
+    end
+    include_examples "shows judges"
+  end
+
+  context "is a witness" do
+    background do
+      sign_in(@witness)
+      visit argument_path(@argument)
+    end
+    scenario "and views an argument page he sees that current role is set to Witness." do
+      within(".status-panel") do
+        expect(page).to have_content("Your Role: Witness")
+      end
+    end
+    include_examples "shows judges"
   end
 
 

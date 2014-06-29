@@ -1,7 +1,13 @@
 .panel.panel-default.status-panel
   .panel-heading
     .panel-title
-      Argument Status
+      = "Argument Status: #{@argument.status}"
   .panel-body
-    Panel Content
+    %p= "Your Role: #{@current_user_role}"
+    .sidebar_judges
+      %h4
+        Assigned Judges:
+      - @argument.judges.each do |judge|
+        %ul
+          %li= judge.user_name
 
