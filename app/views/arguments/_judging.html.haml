@@ -1,0 +1,25 @@
+%h2 Con Side Arguments
+
+%table.judging_arguments
+  %tr
+    %th Title
+    %th Pro Side
+    %th Winner
+    %th Loser
+    %th Status
+    %th
+    %th
+    %th
+
+  - @judging_arguments && @judging_arguments.each do |argument|
+    %tr{ class: "argument_row_for_#{argument.id}" }
+      %td= argument.essay.title
+      %td= argument.owner.user_name
+      %td= argument.winner_id
+      %td= argument.loser_id
+      %td= argument.status
+      %td= link_to 'Show', argument
+      -if policy(argument).edit?
+        %td= link_to 'Edit Con Side Essay', edit_user_argument_path(current_user, argument)
+
+%br
