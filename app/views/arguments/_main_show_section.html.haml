@@ -22,6 +22,6 @@
     - if policy(@argument).add_judges?
       = render "add_judges"
     - if @argument.judges.count >= Argument::BASE_NUM_JUDGES && policy(@argument).add_judges?
-      .begin_judgement_phase_button
+      .begin_judgement_phase_button_div
         .btn.btn-default
-          = link_to( "Begin Judgement Phase")
+          = link_to( "Begin Judgement Phase","/users/#{current_user.id}/arguments/#{@argument.id}/transition_to_being_judged", method: "put")

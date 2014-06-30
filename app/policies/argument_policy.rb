@@ -28,6 +28,10 @@ class ArgumentPolicy < ApplicationPolicy
     update?
   end
 
+  def transition_to_being_judged?
+    add_judges?
+  end
+
   def add_judges?
     scope.where(:id => record.id).exists? && (user == record.con_side || user == record.owner) && record.selecting_judges?
   end

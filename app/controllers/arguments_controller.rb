@@ -1,5 +1,5 @@
 class ArgumentsController < ApplicationController
-  before_action :set_argument, only: [:show, :edit, :update, :destroy, :submit_to_judgement, :add_judges]
+  before_action :set_argument, only: [:show, :edit, :update, :destroy, :submit_to_judgement, :add_judges, :transition_to_being_judged]
 
   # GET /arguments
   # GET /arguments.json
@@ -77,9 +77,18 @@ class ArgumentsController < ApplicationController
     end
   end
 
+  #Will be renamed: begin_selecting_judges
   def submit_to_judgement
     authorize @argument
     @argument.selecting_judges!
+    redirect_to action: 'show'
+  end
+
+  def transition_to_being_judged
+    authorize @argument
+    if @argument.selecting_judges?
+      @argument.being_judged!
+    end
     redirect_to action: 'show'
   end
 

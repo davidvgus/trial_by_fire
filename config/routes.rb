@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   put 'arguments/:id/add_judges', to: 'arguments#add_judges'
 
+  put '/users/:user_id/arguments/:id/transition_to_being_judged', to: 'arguments#transition_to_being_judged'
+
   get '/users/:user_id/essays/:essay_id/arguments/new', to: 'arguments#new'
 
   resources :arguments, only: [:show] do

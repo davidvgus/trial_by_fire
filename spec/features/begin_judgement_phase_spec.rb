@@ -29,7 +29,7 @@ feature "When argument" do
       end
 
       scenario "user can see 'Begin Judgement Phase'" do
-        within(".begin_judgement_phase_button") do
+        within(".begin_judgement_phase_button_div") do
           expect(page).to have_content('Begin Judgement Phase')
         end
       end
@@ -42,7 +42,7 @@ feature "When argument" do
       end
 
       scenario "user can see 'Begin Judgement Phase'" do
-        within(".begin_judgement_phase_button") do
+        within(".begin_judgement_phase_button_div") do
           expect(page).to have_content('Begin Judgement Phase')
         end
       end
