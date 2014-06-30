@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140630024641) do
+ActiveRecord::Schema.define(version: 20140630192014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140630024641) do
     t.text     "con_side_essay"
     t.integer  "winner_id"
     t.integer  "loser_id"
-    t.integer  "outcome"
+    t.integer  "outcome",        default: 0
     t.integer  "status",         default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
