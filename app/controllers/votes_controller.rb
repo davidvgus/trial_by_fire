@@ -25,7 +25,7 @@ class VotesController < ApplicationController
       @vote = current_user.votes.create(argument: @argument)
       @vote.send(state)
     end
-    flash[:notice]= "vote cast as #{state}"
     @argument.check_for_completion
+    flash[:notice]= "vote cast as #{state}"
   end
 end
