@@ -36,4 +36,12 @@ class Argument < ActiveRecord::Base
     end
   end
 
+  def up_votes
+    self.votes.where(status: 1).count
+  end
+
+  def down_votes
+    self.votes.where(status: 0).count
+  end
+
 end
