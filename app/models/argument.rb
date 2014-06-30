@@ -12,6 +12,7 @@ class Argument < ActiveRecord::Base
 
   enum status: { being_critiqued: 0, selecting_judges: 10, being_judged: 20, complete: 30}
 
+  BASE_NUM_JUDGES = 5
 
   def has_judge?(user)
     self.judges.include?(user)
