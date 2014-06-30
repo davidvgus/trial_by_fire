@@ -7,16 +7,6 @@
     %p
       %b Con side essay:
       = @argument.con_side_essay
-    %p
-      %b Winner:
-      = @argument.winner_id
-    %p
-      %b Loser:
-      = @argument.loser_id
-    %p
-      %b Status:
-      = @argument.status
-
     - if policy(@argument).edit?
       = link_to 'Edit', edit_user_argument_path(current_user, @argument)
     - if policy(@argument).add_judges?
