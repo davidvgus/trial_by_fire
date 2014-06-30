@@ -23,9 +23,25 @@ feature "As a judge" do
     #@argument.reload
     within(".vote_tally") do
       expect(page).to have_content("Affirmative: 1")
+      expect(page).to have_content("Negative: 0")
+      expect(page).to have_content("Undecided: 5")
+      expect(page).to have_content("Total: 6")
     end
   end
 
-  scenario "bleh"
+  scenario "user can cast down-vote" do
+    visit argument_path(@argument)
+    within(".voting_booth") do
+      click_on("Negate the motion")
+    end
+
+    #@argument.reload
+    within(".vote_tally") do
+      expect(page).to have_content("Affirmative: 0")
+      expect(page).to have_content("Negative: 1")
+      expect(page).to have_content("Undecided: 5")
+      expect(page).to have_content("Total: 6")
+    end
+  end
 
 end

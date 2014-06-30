@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     resources :essays
     resources :arguments, except: [:show, :new] do
+      get '/upvote' => 'votes#upvote'
+      get '/downvote' => 'votes#downvote'
     end
   end
 
