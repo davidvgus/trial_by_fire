@@ -44,4 +44,13 @@ class Argument < ActiveRecord::Base
     self.votes.where(status: 0).count
   end
 
+  def check_for_completion
+    affirmative_votes = self.up_votes
+    negative_votes = self.down_votes
+    undecided_votes = self.judges.count - (affirmative_votes + negative_votes)
+    if self.status == "being_judged" && undecided_votes == 0
+      self.complete!
+    end
+  end
+
 end
