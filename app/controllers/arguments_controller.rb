@@ -15,9 +15,11 @@ class ArgumentsController < ApplicationController
     authorize @argument
     @users_elegible_to_be_judges = @argument.eligible_judges
     @current_user_role = @argument.get_current_user_role(current_user)
-    @affirmative = Argument.where(id: @argument.id, status: 1).count
-    @negative = Argument.where(id: @argument.id, status: 0).count
-    @undecided = @argument.votes.count - @affirmative + @negative
+
+    @affirmative = @argument.up_votes
+    @negative = @argument.down_votes
+    @undecided = @argument.judges.count - (@affirmative + @negative)
+    @total = @argument.judges.count
   end
 
   # GET /arguments/new
