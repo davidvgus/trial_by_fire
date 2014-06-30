@@ -5,6 +5,7 @@ class Argument < ActiveRecord::Base
   has_one :essay
   has_many :judgeships
   has_many :judges, through: :judgeships, source: :user
+  has_many :votes
 
   validates_presence_of :owner_id
   validates_presence_of :con_side_id

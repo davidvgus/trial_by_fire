@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :con_arguments, foreign_key: "con_side"
   has_many :judgeships
   has_many :appointments, through: :judgeships, source: :argument
+  has_many :votes
 
   scope :eligible_judges, ->(excluded_judges) { where.not(id: excluded_judges) }
 end
