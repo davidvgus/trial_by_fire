@@ -21,3 +21,7 @@
       = link_to 'Edit', edit_user_argument_path(current_user, @argument)
     - if policy(@argument).add_judges?
       = render "add_judges"
+    - if @argument.judges.count >= Argument::BASE_NUM_JUDGES && policy(@argument).add_judges?
+      .begin_judgement_phase_button
+        .btn.btn-default
+          = link_to( "Begin Judgement Phase")
