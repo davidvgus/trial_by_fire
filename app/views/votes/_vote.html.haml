@@ -5,9 +5,9 @@
   .panel-body
     .voting_booth
       .up_vote
-        = link_to "  Affirm the motion", "#", class: 'btn btn-success btn-lg glyphicon glyphicon-thumbs-up'
+        = link_to "  Affirm the motion", user_argument_upvote_path(current_user, @argument), class: 'btn btn-success btn-lg glyphicon glyphicon-thumbs-up'
       .down_vote
-        = link_to "  Negate the motion", "#", class: 'btn btn-danger btn-lg glyphicon glyphicon-thumbs-down'
+        = link_to "  Negate the motion", user_argument_downvote_path(current_user, @argument), class: 'btn btn-danger btn-lg glyphicon glyphicon-thumbs-down'
 
 
 
