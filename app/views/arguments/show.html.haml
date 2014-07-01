@@ -5,10 +5,7 @@
     = render "main_show_section"
   .col-md-4
     = render "status_panel"
-.row
-  .col-md-4
-    - if @argument.has_judge?(current_user) && @argument.being_judged?
-      = render "votes/vote"
-  .col-md-4.col-md-offset-4
     - if @argument.being_judged? || @argument.complete?
       = render "votes/tally"
+    - if @argument.has_judge?(current_user) && @argument.being_judged?
+      = render "votes/vote"
