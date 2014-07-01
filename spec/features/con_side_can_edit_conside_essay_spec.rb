@@ -24,7 +24,7 @@ feature "con_side" do
     visit user_arguments_path(@con_side, @argument)
 
     within("#con_side_argument_list") do
-      click_on("Edit Con Side Essay")
+      click_on("Begin or edit your critque")
     end
 
     test_text = "This is some edited text"
