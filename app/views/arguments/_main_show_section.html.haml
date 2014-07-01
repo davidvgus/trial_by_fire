@@ -1,11 +1,16 @@
+.panel.panel-default.main-panel
+  .panel-heading
+    .panel-title
+      The Motion
+  .panel-body
+    = @essay.body
 
 .panel.panel-default.main-panel
   .panel-heading
     .panel-title
-      main
+      The Critique of The Motion
   .panel-body
     %p
-      %b Con side essay:
       = @argument.con_side_essay
     - if policy(@argument).edit?
       = link_to 'Edit', edit_user_argument_path(current_user, @argument)

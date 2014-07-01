@@ -20,6 +20,8 @@ class ArgumentsController < ApplicationController
     @negative = @argument.down_votes
     @undecided = @argument.judges.count - (@affirmative + @negative)
     @total = @argument.judges.count
+
+    @essay = @argument.essay
   end
 
   # GET /arguments/new
