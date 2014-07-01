@@ -40,7 +40,7 @@ class ArgumentsController < ApplicationController
   # POST /arguments
   # POST /arguments.json
   def create
-    @argument = Argument.new
+    @argument = Argument.new(:con_side_essay => "Your opponent will replace this text.")
     @argument.owner = current_user
     @argument.con_side = User.find(params[:argument][:con_side_id])
     @argument.essay = Essay.find(params[:essay_id])
