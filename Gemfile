@@ -37,6 +37,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'newrelic_rpm'
 gem 'faker'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'pry-rails'

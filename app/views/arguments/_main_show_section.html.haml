@@ -3,7 +3,7 @@
     .panel-title
       The Motion
   .panel-body
-    = @essay.body
+    = markdown @essay.body
 
 .panel.panel-default.main-panel
   .panel-heading
@@ -11,7 +11,7 @@
       The Critique of The Motion
   .panel-body
     %p
-      = @argument.con_side_essay
+      = markdown @argument.con_side_essay
     - if policy(@argument).edit?
       = link_to 'Edit', edit_user_argument_path(current_user, @argument)
     - if policy(@argument).add_judges?
