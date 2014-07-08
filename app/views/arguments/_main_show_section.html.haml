@@ -11,7 +11,10 @@
       The Critique of The Motion
   .panel-body
     %p
-      = markdown @argument.con_side_essay
+      - if @argument.con_side_essay
+        = markdown @argument.con_side_essay
+      - else
+        = "Critique not yet created"
     - if policy(@argument).edit?
       = link_to 'Edit', edit_user_argument_path(current_user, @argument)
     - if policy(@argument).add_judges?
